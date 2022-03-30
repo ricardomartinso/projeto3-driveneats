@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Righteous&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 * {
     box-sizing: border-box;
 }
 body {
     background-color: #E5E5E5;
 }
+
+.wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
 h3 {
     font-family: 'Righteous', cursive;
     margin: 30px 0;
 }
-.wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
 .topo {
     display: flex;
     flex-direction: column;
@@ -23,7 +24,7 @@ h3 {
     background-color: #CF2B2B;
     width: 100%;
     border-bottom: 2px solid #CF2B2B;
-    box-shadow: 0 0 5px black;
+    box-shadow: 0 0 10px black;
     height: 92px;
     padding: 13px;
     position: fixed;
@@ -42,18 +43,17 @@ h3 {
     color: white;   
 }
 .produtos-escolha {
-    margin-top: calc(92px + 0px);
-    margin-left: 14px;
+    margin-top: calc(92px + 31px);
     margin-bottom: calc(60px + 61px);
     height: auto;
-    padding: 8px;
 }
 
 .produtos-escolha h3 {
     font-size: 26px;
     color: black;
-    margin-top: 25px;
+    margin-top: 40px;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .refeicoes {
@@ -67,24 +67,37 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 172px;
+    width: 180px;
     height: 216px;
     background-color: white;
-    border: 1px solid #f5f6f7;
+    border: 4px solid transparent;
     border-radius: 10px;
-    margin-right: 20px;
+    margin-left: 20px;
     padding: 14px;
-
+    position: relative;
 }
+.refeicao:hover {
+    border: 4px solid #32B72F;
+}
+.refeicao-selecionada {
+    display: none;
+    position: absolute;
+    right: 6px;
+    bottom: 2px;
+}
+.refeicao:hover .refeicao-selecionada {
+    display: initial;
+    font-size: 20px;
+    color: #32B72F;
+}
+
 .bebida {
     height: 202px;
 }
 .sobremesa {
     height: 197px;
 }
-.refeicao:hover {
-    border: 4px solid #32B72F;
-}
+
 .refeicao h5 {
     font-size: 16px;
     color: #333333;
@@ -98,7 +111,7 @@ h3 {
 }
 .valor {
     font-size: 16px;
-    columns: #000;
+    color: #000;
 }
 .fechar-pedido {
     display: flex;
@@ -123,6 +136,21 @@ h3 {
 .fechar-pedido button p {
     width: 230px;
     margin: 0 auto;
+}
+.confirmado {
+   display: none;
+   
+}
+.confirmado button{
+    display: none;
+    color: white;
+    background-color: #32B72F;
+}
+
+.fechar-pedido:hover .confirmado, .confirmado button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .refeicoes::-webkit-scrollbar {
