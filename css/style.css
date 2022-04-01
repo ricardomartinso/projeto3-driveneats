@@ -5,12 +5,17 @@
 }
 body {
     background-color: #E5E5E5;
+    height: 100%;
+    position: relative;
+    
 }
 
 .wrapper {
     max-width: 600px;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
+    
+    
 }
 h3 {
     font-family: 'Righteous', cursive;
@@ -143,7 +148,7 @@ h3 {
     width: 364px;
     height: 61px;
     border-radius: 50px;
-    background-color: #32B72F;
+    background-color: rgb(50, 183, 47);
     border: none;
     font-size: 20px;
     color: white;
@@ -167,4 +172,64 @@ h3 {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
+}
+
+.confirmar-pedido {
+    position: fixed;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.945);
+    z-index: 2;
+}
+.card-confirmar-pedido {
+    background-color: #50D074;
+    color: white;
+    border-radius: 9px;
+    position: relative;
+    top: 30%;
+    width: 377px;
+    height: 353px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+}
+.card-confirmar-pedido h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.card-confirmar-pedido div {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 15px;
+}
+.confirmar-botao button {
+    width: 329px;
+    height: 52px;
+    color: #50D074;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+    border-radius: 100px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.confirmar-valor {
+    font-weight: bold;
+}
+.cancelar p {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.escondido {
+    display: none;
 }
