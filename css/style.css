@@ -190,7 +190,7 @@ h3 {
     position: relative;
     top: 30%;
     width: 377px;
-    height: 353px;
+    height: 370px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -207,6 +207,12 @@ h3 {
     justify-content: space-between;
     width: 300px;
     margin-bottom: 15px;
+}
+.card-confirmar-pedido p {
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: start;
 }
 .confirmar-botao button {
     width: 329px;
@@ -230,6 +236,7 @@ h3 {
     font-weight: bold;
     text-align: center;
 }
+
 .escondido {
     display: none;
 }
