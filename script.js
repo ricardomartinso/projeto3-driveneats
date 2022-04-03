@@ -88,19 +88,20 @@ function confirmarPedido() {
     confirmarTotal = document.querySelector(".confirmar-valor span");
     valorSoma = (Number.parseFloat(pratoValor.attributes.value.textContent) + Number.parseFloat(bebidaValor.attributes.value.textContent) + Number.parseFloat(sobremesaValor.attributes.value.textContent));
     confirmarTotal.innerHTML = `R$ ${valorSoma.toFixed(2)}`
-    let nomeUsuario = prompt("Qual o seu nome?");
-    let enderecoUsuario = prompt("Qual o seu endereço?");
+
 
     document.querySelector(".nome-usuario").textContent = nomeUsuario;
     document.querySelector(".endereco-usuario").textContent = enderecoUsuario;
 }
 
 function redirecionarWpp () {
+    let nomeUsuario = prompt("Qual o seu nome?");
+    let enderecoUsuario = prompt("Qual o seu endereço?");
+
     pratoNome = document.querySelector(".refeicao.prato.selecionada h5");
     bebidaNome = document.querySelector(".refeicao.bebida.selecionada h5");
     sobremesaNome = document.querySelector(".refeicao.sobremesa.selecionada h5");
-    let nomeUsuario = document.querySelector(".nome-usuario").innerHTML;
-    let enderecoUsuario = document.querySelector(".endereco-usuario").innerHTML;
+
 
     let url = `Olá, gostaria de fazer o pedido:
 - Prato: ${pratoNome.innerHTML}
