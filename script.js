@@ -1,4 +1,18 @@
 var pedidos = [];
+let pratoNome;
+let pratoValor;
+let bebidaNome;
+let bebidaValor;
+let sobremesaNome;
+let sobremesaValor;
+let confirmarPratoNome;
+let confirmarPratoValor;
+let confirmarBebidaNome;
+let confirmarBebidaValor;
+let confirmarSobremesaNome;
+let confirmarSobremesaValor;
+let confirmarTotal;
+let valorSoma;
 
 
 function selecionarPrato(prato) {
@@ -46,32 +60,36 @@ function confirmarPedido() {
     if (botaoConfirmado !== null) {
         confirmarPedido.classList.remove("escondido");
     }
-    let pratoNome = document.querySelector(".refeicao.prato.selecionada h5");
-    let pratoValor = document.querySelector(".refeicao.prato.selecionada p.valor");
-    let bebidaNome = document.querySelector(".refeicao.bebida.selecionada h5");
-    let bebidaValor = document.querySelector(".refeicao.bebida.selecionada p.valor");
-    let sobremesaNome = document.querySelector(".refeicao.sobremesa.selecionada h5");
-    let sobremesaValor = document.querySelector(".refeicao.sobremesa.selecionada p.valor");
+    pratoNome = document.querySelector(".refeicao.prato.selecionada h5");
+    pratoValor = document.querySelector(".refeicao.prato.selecionada p.valor");
+    bebidaNome = document.querySelector(".refeicao.bebida.selecionada h5");
+    bebidaValor = document.querySelector(".refeicao.bebida.selecionada p.valor");
+    sobremesaNome = document.querySelector(".refeicao.sobremesa.selecionada h5");
+    sobremesaValor = document.querySelector(".refeicao.sobremesa.selecionada p.valor");
 
-    let confirmarPratoNome = document.querySelector(".confirmar-prato p");
-    let confirmarPratoValor = document.querySelector(".confirmar-prato span");
+    confirmarPratoNome = document.querySelector(".confirmar-prato p");
+    confirmarPratoValor = document.querySelector(".confirmar-prato span");
 
-    let confirmarBebidaNome = document.querySelector(".confirmar-bebida p");
-    let confirmarBebidaValor = document.querySelector(".confirmar-bebida span");
+    confirmarBebidaNome = document.querySelector(".confirmar-bebida p");
+    confirmarBebidaValor = document.querySelector(".confirmar-bebida span");
 
-    let confirmarSobremesaNome = document.querySelector(".confirmar-sobremesa p");
-    let confirmarSobremesaValor = document.querySelector(".confirmar-sobremesa span");
+    confirmarSobremesaNome = document.querySelector(".confirmar-sobremesa p");
+    confirmarSobremesaValor = document.querySelector(".confirmar-sobremesa span");
     
     confirmarPratoNome.innerHTML = pratoNome.textContent;
-    confirmarPratoValor.innerHTML = pratoValor.textContent;
+    confirmarPratoValor.innerHTML = `R$ ${Number.parseFloat(pratoValor.attributes.value.textContent)}0`
 
     confirmarBebidaNome.innerHTML = bebidaNome.textContent;
-    confirmarBebidaValor.innerHTML = bebidaValor.textContent;
+    confirmarBebidaValor.innerHTML = `R$ ${Number.parseFloat(bebidaValor.attributes.value.textContent)}0`
 
     confirmarSobremesaNome.innerHTML = sobremesaNome.textContent;
-    confirmarSobremesaValor.innerHTML = sobremesaValor.textContent;
-    
+    confirmarSobremesaValor.innerHTML = `R$ ${Number.parseFloat(sobremesaValor.attributes.value.textContent)}0`
+
+    confirmarTotal = document.querySelector(".confirmar-valor span");
+    valorSoma = (Number.parseFloat(pratoValor.attributes.value.textContent) + Number.parseFloat(bebidaValor.attributes.value.textContent) + Number.parseFloat(sobremesaValor.attributes.value.textContent));
+    confirmarTotal.innerHTML = `R$ ${valorSoma.toFixed(2)}`
 }
+
 
 function cancelarPedido(cancelar) {
     let confirmarPedido = document.querySelector(".confirmar-pedido");
@@ -79,5 +97,15 @@ function cancelarPedido(cancelar) {
 }
 
 function redirecionarWpp () {
-    window.location.href = "https://wa.me/5591989387279?text=Gostaria%20de%20realizar%20esse%20pedido";
+    pratoNome = document.querySelector(".refeicao.prato.selecionada h5");
+    bebidaNome = document.querySelector(".refeicao.bebida.selecionada h5");
+    sobremesaNome = document.querySelector(".refeicao.sobremesa.selecionada h5");
+
+    let url = `Olá, gostaria de fazer o pedido:
+- Prato: ${pratoNome.innerHTML}
+- Bebida: ${bebidaNome.innerHTML}
+- Sobremesa: ${sobremesaNome.innerHTML}
+Total: R$ ${valorSoma.toFixed(2)}`
+    let encode = encodeURIComponent(url);
+    window.location.href = `https://wa.me/5591980448461?text=${encode};`
 }
