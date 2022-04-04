@@ -108,7 +108,7 @@ function redirecionarWpp () {
     sobremesaNome = document.querySelector(".refeicao.sobremesa.selecionada h5");
 
 
-    let url = `Olá, gostaria de fazer o pedido:
+    let mensagemUsuario = `Olá, gostaria de fazer o pedido:
 - Prato: ${pratoNome.innerHTML}
 - Bebida: ${bebidaNome.innerHTML}
 - Sobremesa: ${sobremesaNome.innerHTML}
@@ -116,8 +116,8 @@ Total: R$ ${valorSoma.toFixed(2)}
 
 Nome: ${nomeUsuario}
 Endereço: ${enderecoUsuario}`
-    let encode = encodeURIComponent(url);
-    window.location.href = `https://wa.me/5591980448461?text=${encode};`
+    let encode = encodeURIComponent(mensagemUsuario);
+    window.location.href = `https://wa.me/5591989387279?text=${encode};`
 }
 
 function cancelarPedido(cancelar) {
