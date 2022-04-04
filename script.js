@@ -77,17 +77,22 @@ function confirmarPedido() {
     confirmarSobremesaValor = document.querySelector(".confirmar-sobremesa span");
     
     confirmarPratoNome.innerHTML = pratoNome.textContent;
-    confirmarPratoValor.innerHTML = `R$ ${Number.parseFloat(pratoValor.attributes.value.textContent)}0`
+    confirmarPratoValor.innerHTML = Number.parseFloat(pratoValor.attributes.value.textContent) + "0"; 
+    confirmarPratoValor.innerHTML = confirmarPratoValor.innerHTML.replace(".",",");
+    
 
     confirmarBebidaNome.innerHTML = bebidaNome.textContent;
-    confirmarBebidaValor.innerHTML = `R$ ${Number.parseFloat(bebidaValor.attributes.value.textContent)}0`
+    confirmarBebidaValor.innerHTML = `${Number.parseFloat(bebidaValor.attributes.value.textContent)}0`
+    confirmarBebidaValor.innerHTML = confirmarBebidaValor.innerHTML.replace(".",",");
 
     confirmarSobremesaNome.innerHTML = sobremesaNome.textContent;
-    confirmarSobremesaValor.innerHTML = `R$ ${Number.parseFloat(sobremesaValor.attributes.value.textContent)}0`
+    confirmarSobremesaValor.innerHTML = `${Number.parseFloat(sobremesaValor.attributes.value.textContent)}0`
+    confirmarSobremesaValor.innerHTML = confirmarSobremesaValor.innerHTML.replace(".",",");
 
     confirmarTotal = document.querySelector(".confirmar-valor span");
     valorSoma = (Number.parseFloat(pratoValor.attributes.value.textContent) + Number.parseFloat(bebidaValor.attributes.value.textContent) + Number.parseFloat(sobremesaValor.attributes.value.textContent));
     confirmarTotal.innerHTML = `R$ ${valorSoma.toFixed(2)}`
+    confirmarTotal.innerHTML = confirmarTotal.innerHTML.replace(".", ",");
 
 
     document.querySelector(".nome-usuario").textContent = nomeUsuario;
